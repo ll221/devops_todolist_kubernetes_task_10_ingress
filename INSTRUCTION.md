@@ -30,13 +30,10 @@ kubectl get pods -A
 # Мають бути pod'и з nginx ingress controller
 ```
 
-### 3. Розмістити Ingress конфігурацію
-```bash
-mkdir -p ./infrastructure/ingress
-cp ingress.yml ./infrastructure/ingress/
-```
+### 3. Розгорнути Ingress конфігурацію
 
-Розгорнути Ingress:
+Ingress файл розташований в репозиторії за адресою `./infrastructure/ingress/ingress.yml`
+
 ```bash
 kubectl apply -f ./infrastructure/ingress/ingress.yml
 ```
@@ -115,3 +112,28 @@ kubectl describe ingress app-ingress
 - `kubectl get all` - всі ресурси в кластері
 - `kubectl describe pod {pod-name}` - деталі pod'а
 - `kubectl logs {pod-name}` - логи додатку
+
+---
+
+## Для завершення завдання
+
+**Структура репозиторія:**
+```
+./infrastructure/
+├── ingress/
+│   └── ingress.yml          ← Ingress конфігурація
+├── app/
+├── mysql/
+└── ...
+INSTRUCTION.md              ← Цей файл
+```
+
+**Git команди:**
+```bash
+git add ./infrastructure/ingress/ingress.yml
+git add INSTRUCTION.md
+git commit -m "Add Ingress configuration and validation instructions"
+git push origin main
+```
+
+Потім створити Pull Request на оригінальний репозиторій.
